@@ -1,11 +1,13 @@
 package com.senai.ecommerce_api.dto;
 
+import com.senai.ecommerce_api.model.User;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -23,5 +25,17 @@ public class UserDTO {
     private String email;
     private String telefone;
     private LocalDateTime dataCadastro;
+
+    public static UserDTO convert(User user) {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setNome(user.getNome());
+        userDTO.setEndereco(user.getEndereco());
+        userDTO.setCpf(user.getCpf());
+        userDTO.setEmail(user.getEmail());
+        userDTO.setTelefone(user.getTelefone());
+        userDTO.setDataCadastro(user.getData_cadastro());
+        return userDTO;
+    }
+
 
 }

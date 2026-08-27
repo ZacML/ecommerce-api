@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -22,15 +23,18 @@ public class User {
     @NotNull
     private String endereco;
     @NotNull
+    private String email;
+    @NotNull
     private String telefone;
     @NotNull
-    private LocalDate data_cadastro;
+    private LocalDateTime data_cadastro;
 
     public static User convert(UserDTO userDTO) {
         User user = new User();
         user.setNome(userDTO.getNome());
         user.setCpf(userDTO.getCpf());
         user.setEndereco(userDTO.getEndereco());
+        user.setEmail(userDTO.getEmail());
         user.setTelefone(userDTO.getTelefone());
         user.setData_cadastro(userDTO.getDataCadastro());
 
